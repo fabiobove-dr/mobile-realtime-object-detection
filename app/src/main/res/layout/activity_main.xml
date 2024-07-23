@@ -6,16 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- Banner TextView at the top -->
+    <TextView
+        android:id="@+id/bannerTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="@string/personalized_name"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- TextureView positioned below the banner -->
     <TextureView
         android:id="@+id/textureView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/bannerTextView" />
 
+    <!-- ImageView positioned below the banner -->
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#000"
-        android:id="@+id/imageView"/>
-
+        android:layout_below="@id/bannerTextView"
+        android:background="#000" />
 
 </RelativeLayout>
