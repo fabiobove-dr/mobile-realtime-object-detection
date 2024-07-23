@@ -1,7 +1,12 @@
 package com.programminghut.realtime_object.helpers
 
-import android.graphics.*
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.RectF
 import com.programminghut.realtime_object.format
+import java.nio.ByteBuffer
 
 class DrawingHelper {
     private val paint = Paint()
@@ -15,7 +20,8 @@ class DrawingHelper {
         locations: FloatArray,
         classes: FloatArray,
         scores: FloatArray,
-        labels: List<String>
+        labels: List<String>,
+        outputArray: Array<ByteBuffer>
     ) {
         val canvas = Canvas(bitmap)
         val h = bitmap.height
@@ -40,7 +46,23 @@ class DrawingHelper {
                 paint.style = Paint.Style.FILL
                 val label = labels[classes[index].toInt()]
                 canvas.drawText("$label ${score.format(2)}", left, top - margin, paint)
+
+                val output = outputArray[index]
+
             }
         }
     }
+    fun drawFullScreenText(bitmap: Bitmap, text: String) {
+        val canvas = Canvas(bitmap)
+        paint.color = Color.WHITE
+        paint.style = Paint.Style.FILL
+        paint.textSize = 100f // Adjust as needed for full screen
+        canvas.drawColor(Color.BLACK) // Clear the canvas with a black background
+        val xPos = (canvas.width / 2) - (paint.measureText(text) / 2)
+        val yPos = (canvas.height / 2) - ((paint.descent() + paint.ascent()) / 2)
+        canvas.drawText(text, xPos, yPos, paint)
+    }
+
 }
+
+

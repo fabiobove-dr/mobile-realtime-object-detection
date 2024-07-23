@@ -1,13 +1,13 @@
 package com.programminghut.realtime_object
 
 import android.os.Bundle
-import android.widget.TextView
-import android.widget.ImageView
 import android.view.TextureView
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.programminghut.realtime_object.helpers.CameraHelper
-import com.programminghut.realtime_object.helpers.PermissionHelper
 import com.programminghut.realtime_object.helpers.ObjectDetectionHelper
+import com.programminghut.realtime_object.helpers.PermissionHelper
 import org.tensorflow.lite.support.common.FileUtil
 import org.tensorflow.lite.support.image.ImageProcessor
 import org.tensorflow.lite.support.image.ops.ResizeOp
@@ -73,4 +73,6 @@ class MainActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         permissionHelper.handlePermissionsResult(requestCode, grantResults)
     }
+
+
 }

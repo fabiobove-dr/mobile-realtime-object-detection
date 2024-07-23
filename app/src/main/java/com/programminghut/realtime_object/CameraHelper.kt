@@ -8,7 +8,6 @@ import android.os.HandlerThread
 import android.view.Surface
 import android.view.TextureView
 import android.widget.ImageView
-import com.programminghut.realtime_object.ml.SsdMobilenetV11Metadata1
 import org.tensorflow.lite.support.image.ImageProcessor
 
 class CameraHelper(private val context: Context) {
