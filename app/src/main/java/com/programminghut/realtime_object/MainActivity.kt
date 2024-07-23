@@ -1,8 +1,9 @@
 package com.programminghut.realtime_object
 
 import android.os.Bundle
-import android.view.TextureView
+import android.widget.TextView
 import android.widget.ImageView
+import android.view.TextureView
 import androidx.appcompat.app.AppCompatActivity
 import com.programminghut.realtime_object.helpers.CameraHelper
 import com.programminghut.realtime_object.helpers.PermissionHelper
@@ -19,10 +20,16 @@ class MainActivity : AppCompatActivity() {
     lateinit var objectDetectionHelper: ObjectDetectionHelper
     lateinit var cameraHelper: CameraHelper
     lateinit var permissionHelper: PermissionHelper
+    lateinit var bannerTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // Initialize the banner TextView
+        bannerTextView = findViewById(R.id.bannerTextView)
+        // Set initial text
+        bannerTextView.text = getString(R.string.initializing)
 
         // Initialize helpers
         permissionHelper = PermissionHelper(this)
@@ -42,6 +49,15 @@ class MainActivity : AppCompatActivity() {
 
         // Initialize camera
         cameraHelper.initializeCamera(textureView, imageView, labels, imageProcessor)
+
+        // Example of updating the TextView text after some processing
+        // This can be placed where appropriate in your actual logic
+        updateBannerText(getString(R.string.ready_to_detect_objects))
+    }
+
+    private fun updateBannerText(text: String) {
+        // Update the banner TextView with new text
+        bannerTextView.text = text
     }
 
     override fun onDestroy() {
