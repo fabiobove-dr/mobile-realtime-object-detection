@@ -52,17 +52,6 @@ class DrawingHelper {
             }
         }
     }
-    fun drawFullScreenText(bitmap: Bitmap, text: String) {
-        val canvas = Canvas(bitmap)
-        paint.color = Color.WHITE
-        paint.style = Paint.Style.FILL
-        paint.textSize = 100f // Adjust as needed for full screen
-        canvas.drawColor(Color.BLACK) // Clear the canvas with a black background
-        val xPos = (canvas.width / 2) - (paint.measureText(text) / 2)
-        val yPos = (canvas.height / 2) - ((paint.descent() + paint.ascent()) / 2)
-        canvas.drawText(text, xPos, yPos, paint)
-    }
-
 }
 
 
