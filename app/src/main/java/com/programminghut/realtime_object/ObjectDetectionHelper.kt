@@ -88,7 +88,7 @@ class ObjectDetectionHelper(context: Context) {
         val scores = outputScores.floatArray
 
         val mutable = bitmap.copy(Bitmap.Config.ARGB_8888, true)
-        drawingHelper.drawDetections(mutable, locations, classes, scores, labels, outputArray)
+        drawingHelper.drawDetections(mutable, locations, classes, scores, labels, outputArray, filterLabel="person")
 
         imageView.setImageBitmap(mutable)
 
