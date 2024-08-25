@@ -19,6 +19,7 @@ import java.nio.channels.FileChannel
 class ObjectDetectionHelper(context: Context) {
     private val interpreter: Interpreter
     private val drawingHelper = DrawingHelper()
+    private val desiredLabel = context.getString(R.string.searched_object)
 
     init {
         val modelPath = context.getString(R.string.model_path)
@@ -88,7 +89,7 @@ class ObjectDetectionHelper(context: Context) {
         val scores = outputScores.floatArray
 
         val mutable = bitmap.copy(Bitmap.Config.ARGB_8888, true)
-        drawingHelper.drawDetections(mutable, locations, classes, scores, labels, outputArray, filterLabel="person")
+        drawingHelper.drawDetections(mutable, locations, classes, scores, labels, outputArray, filterLabel= this.desiredLabel)
 
         imageView.setImageBitmap(mutable)
 

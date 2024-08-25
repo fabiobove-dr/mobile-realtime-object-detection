@@ -6,5 +6,4 @@
     <string name="ready_to_detect_objects">Ready to Detect Objects</string>
     <string name="real_time_objects">RealTimeObjects</string>
     <string name="show_model_prediction">Show Model Prediction</string>
-    <string name="cat">cat</string>
 </resources>

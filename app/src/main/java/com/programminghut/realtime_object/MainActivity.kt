@@ -3,6 +3,7 @@ package com.programminghut.realtime_object
 import android.os.Bundle
 import android.view.TextureView
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.programminghut.realtime_object.helpers.CameraHelper
@@ -21,11 +22,12 @@ class MainActivity : AppCompatActivity() {
     lateinit var cameraHelper: CameraHelper
     lateinit var permissionHelper: PermissionHelper
     lateinit var bannerTextView: TextView
-
+    lateinit var appContainer: RelativeLayout
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        appContainer = findViewById(R.id.container)
         // Initialize the banner TextView
         bannerTextView = findViewById(R.id.bannerTextView)
         // Set initial text
